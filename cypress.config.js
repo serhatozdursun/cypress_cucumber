@@ -31,7 +31,7 @@ async function setupNodeEvents(on, config) {
 }
 
 module.exports = {
-    projectId: '3m6bme',
+    projectId: 'cypress_cucumber',
     default: defineConfig({
         e2e: {
             specPattern: '**/*.feature',
