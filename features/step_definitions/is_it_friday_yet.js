@@ -16,7 +16,6 @@ Then("All page reload in {string} language", (language) => {
     if (language !== 'España') {
         const originUrl = 'https://' + languageDic['domain'];
         cy.origin(originUrl.toString(), {args: languageDic}, ({domain, lang}) => {
-            cy.visit('/');
             cy.get("html").invoke('attr', 'lang')
                 .should('eq', lang);
             cy.get("html").invoke('attr', 'data-wf-domain')
