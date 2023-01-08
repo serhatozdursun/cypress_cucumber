@@ -19,5 +19,8 @@
   },
   "Francia": {
     "get": ".francelink"
+  },
+  "lang_info": {
+    "get": "html"
   }
 }
