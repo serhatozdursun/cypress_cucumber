@@ -1,0 +1,23 @@
+{
+  "localization_dropdown": {
+    "get": "#w-dropdown-toggle-2"
+  },
+  "Colombia": {
+    "get": ".colombialink"
+  },
+  "España": {
+    "get": ".spainlink"
+  },
+  "Portugal": {
+    "get": ".portugallink"
+  },
+  "Italia": {
+    "get": ".italylink"
+  },
+  "Perú": {
+    "get": ".perulink2"
+  },
+  "Francia": {
+    "get": ".francelink"
+  }
+}
