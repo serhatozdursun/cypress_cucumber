@@ -1,7 +1,7 @@
 import locators from '../resources/localization.json'
 
-export function getLangOptionClass(language) {
-    switch (language) {
+export function get_country_option_elms(country) {
+    switch (country) {
         case 'Colombia':
             return getElement("Colombia");
         case 'España':
@@ -17,9 +17,9 @@ export function getLangOptionClass(language) {
     }
 }
 
-export function getCenturyCode(language) {
+export function get_century_code(country) {
 
-    switch (language) {
+    switch (country) {
         case 'Colombia':
             return {
                 domain: "www.payflowapp.co",

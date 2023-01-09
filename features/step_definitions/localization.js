@@ -1,19 +1,19 @@
 const {Given, When, Then} = require('@badeball/cypress-cucumber-preprocessor');
-const {getElement, getLangOptionClass, getCenturyCode} = require('../commons/common_methods');
+const {getElement, get_country_option_elms, get_century_code} = require('../commons/common_methods');
+const {create_customer, get_customer} = require('../commons/customer')
 
-Given('Payflow home page with open country selection list box', () => {
+Given('{string} is from {string}', function (name, country) {
+    create_customer(name, country);
+});
+When('changes the page language', function () {
     cy.visit(Cypress.config().baseUrl);
-    cy.log(' page is loaded')
-    let elm = getElement("localization_dropdown")
-    elm.click();
-    cy.log('language button clicked')
+    getElement("localization_dropdown").click();
+    get_country_option_elms(get_customer()['country']).first().click();
+
 });
-When("Select the {string}", (language) => {
-    getLangOptionClass(language).first().click();
-});
-Then("All page reload in {string} language", (language) => {
-    const languageDic = getCenturyCode(language);
-    if (language !== 'España') {
+Then('Page should be display in expected language', function () {
+    const languageDic = get_century_code(get_customer()['country']);
+    if (get_customer()['country'] !== 'España') {
         const originUrl = 'https://' + languageDic['domain'];
         cy.origin(originUrl.toString(), {args: languageDic}, ({domain, lang}) => {
             cy.get("html").invoke('attr', 'lang')

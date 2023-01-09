@@ -1,15 +1,17 @@
 Feature: Localization
   As a client I want to change language of the https://www.payflow.es/
 
-  Scenario Outline: select Different languages
-    Given  Payflow home page with open country selection list box
-    When Select the '<language>'
-    Then All page reload in '<language>' language
+  Scenario Outline: I should be able to change page language
+    As the customer from different country
+
+    Given '<Name>' is from '<Country>'
+    When changes the page language
+    Then Page should be display in expected language
     Examples:
-      | language |
-      | Colombia |
-      | España   |
-      | Portugal |
-      | Perú     |
-      | Italia   |
-      | Francia  |
+      | Name     | Country  |
+      | Alroy    | Colombia |
+      | Martin   | España   |
+      | Santiago | Portugal |
+      | Carlos   | Perú     |
+      | Marco    | Italia   |
+      | Léa      | Francia  |
